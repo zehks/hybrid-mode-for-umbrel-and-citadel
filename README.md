@@ -1,28 +1,19 @@
 **DISCLAIMER**
 
-I am not taking any responsibility if something goes wrong. Don't issue
-**any** command if you are not sure about it. [Actually, nobody should
-issue any command if they do not know what it does.]{.ul} I am not doing
-any troubleshooting.
+I am not taking any responsibility if something goes wrong. Don't issue **any** command if you are not sure about it. **Actually, nobody should issue any command if they do not know what it does.** I am not doing any troubleshooting.
 
-This guide does not cover all security considerations such as
-restricting SSH to private key login only or denying logins from other
-IP than yours.
+This guide does not cover all security considerations such as restricting SSH to private key login only or denying logins from other IP than yours.
 
 **PREREQUISITES**
 
 - To be able to SSH in your Lightning node
-
 - To be able to SSH in your VPS
-
 - To have a static IP in your VPS
-
 - To have access to VPS security configuration
 
 **ASSUMPTIONS**
 
 - You having a current working RunCitadel or GetUmbrel instance
-
 - You are running Lightning Network Daemon on port 9735
 
 **SETTING UP AN ENCRYPTED AND SECURE TUNNEL**
@@ -30,9 +21,7 @@ IP than yours.
 For that purpose we are going to make use of native Tailscale app from
 the appstore.
 
-1. Go ahead to Tailscale\'s website and sign up
-([[www.tailscale.com]](http://www.tailscale.com)).
- 
+1. Go ahead to Tailscale\'s website and sign up ([[www.tailscale.com]](http://www.tailscale.com)).
 2. Then install Tailscale app in your node and launch it. Web browser will pop up a window to log in.
 
 Now you should see a new machine in your Tailscale\'s account admin panel (website). This machine should be your node.
