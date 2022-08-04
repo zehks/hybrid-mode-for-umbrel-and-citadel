@@ -1,22 +1,23 @@
-# DISCLAIMER
-
+# Disclaimer
 I am not taking any responsibility if something goes wrong. Don't issue **any** command if you are not sure about it. **Actually, nobody should issue any command if they do not know what it does.** I am not doing any troubleshooting.
 
+## Uncovered
 This guide does not cover all security considerations such as restricting SSH to private key login only or denying logins from other IP than yours.
+It does not cover neither to make the VPS configuration persistent so it keeps configuration when rebooted.
 
-# PREREQUISITES
+# Prerequisites
 
 - To be able to SSH in your Lightning node
 - To be able to SSH in your VPS
 - To have a static IP in your VPS
 - To have access to VPS security configuration
 
-# ASSUMPTIONS
+# Assumptions
 
 - You having a current working RunCitadel or GetUmbrel instance
 - You are running Lightning Network Daemon on port 9735
 
-# SETTING UP AN ENCRYPTED AND SECURE TUNNEL
+# Setting up an encrypted and secure tunnel
 
 For that purpose we are going to make use of native Tailscale app from the appstore.
 
@@ -31,13 +32,13 @@ Now you should see a new machine in your Tailscale\'s account admin panel (websi
 
 Watch your VPS terminal\'s output. Look for any error there. If not, it should say you must log in through a link. Copy that link and paste it into your web browser. Log in. You should now see two machines in your Tailscale admin panel. Big yikes!
 
-# TESTING VPN TUNNEL
+# Testing your VPN tunnel
 
 On your VPS terminal you should be able to issue the command \"tailscale status\", which should output two machines. One for your VPS and another for your node. Look at the node\'s IP in that terminal output. Issue the command "tailscale ping \<ip_address\>\".
 
 Remember to replace \"\<ip_address\>\" with the node\'s actual VPN IP address. If the terminal replies with a \"pong\", you are done on the VPN Tunnel setting.
 
-# FORWARDING TRAFFIC PACKETS
+# Forwarding traffic
 
 Now you have set up your vpn tunnel and your two machines are able to see each other and talk. Fine! We need now to tell the VPS to forward traffic to the node. For that purpose we are going to use \"iptables\".
 
@@ -49,7 +50,7 @@ We are going to need some information here.
 2. VPS\' VPN IP address.
 3. Node\'s VPN IP address. Both IP can be found on \"tailscale status\".
 
-From the previous tweet, \"eth0\" will be replaced with \"vps_internet_iface\" and \"tailscale0\" with \"vps_vpn_iface\".
+Following the example, \"eth0\" will be replaced with \"vps_internet_iface\" and \"tailscale0\" with \"vps_vpn_iface\".
 
 VPS\' VPN IP will be \"vps_vpn_ip\" and your node\'s VPN IP \"node_vpn_ip\". So when issuing the following commands, you need to replace the values.
 
@@ -71,7 +72,7 @@ Then issue the command:
 
 That last command says to Linux to act as a router (i.e. to forward packets).
 
-# TESTING BEFORE CONFIGURING LND
+# Testing before moving on LND configuration
 
 Head to some online service for checking open ports like [https://portchecker.co/check](https://portchecker.co/check) and check connectivity. You must put in there your VPS public IP and port number 9735. If it is opened, you are ready to go to the next step.
 
