@@ -87,3 +87,66 @@ If it is closed, you need to troubleshoot. Some points to check:
 > tailscale status
 > 
 > tailscale ping \<ip\>
+
+# Configuring LND
+
+We have set up a secure and direct link between the VPS and our node. We have checked that the Internet (i.e everybody) is able to reach our node on port 9735 using the VPS public IP.
+
+Now it is time to tell our node to announce that public IP and enable hybrid mode.
+SSH in your node and locate your citadel installation. By default if you used the official image for Raspberry that Umbrel or Citadel gives, the path should be on ~/citadel or ~/umbrel. 
+We are editing a template configuration file which is located under *templates* folder.
+> nano ~/citadel/templates/lnd-sample.conf
+
+On this file we are adding two lines under *[Application Options]* section.
+> externalip=<vpn_public_ip>:9735
+>
+> nat=false
+
+**Remember that you have to save the file. To do so, press *ctrl+O* then *ctrl+X* to exit from the nano editor.**
+
+Then, at the end of the file under *[tor]* section:
+> tor.skip-proxy-for-clearnet-targets=true
+>
+> tor.streamisolation=false
+
+Now you could replicate those changes under *~/citadel/lnd/lnd.conf* so you don't have to restart your node.
+If so, you have to restart only the Lightning Network service which is running as a Docker container.
+> sudo docker restart lightning
+
+Check for any error on the logs.
+> sudo docker logs -n10 -f lightning
+
+Check if LND is reporting your new URI with a clearnet address.
+> sudo docker exec -it lightning lncli getinfo | jq '.uris'
+You should get an output similar to this one, see that there are two URI (<pubkey>@<address>:<port>) with different addresses (one .onion address and a IP).
+> [  
+    "03339a8dca2023a3e2a7b4ee99f6a7be87d04bfd32775d3b7f85b0d6d30c457626@35.180.18.38:9735",  
+    "03339a8dca2023a3e2a7b4ee99f6a7be87d04bfd32775d3b7f85b0d6d30c457626@gznwi4govx7c4rur3gpgbekixjahhe7lgfwt3r2qwm6auqjeme5pguyd.onion:9735"  
+]
+
+# The OG Real testing
+
+Download a mobile lightning wallet such as Blixt. Try to add a new peer (your node) using the clearnet URI. If you succeed: congratulations! You have set up hybrid mode on your node.
+You can find this option under the menu (top-right button), inside Lightning Network Peers section. 
+
+## Pro tip
+To make your life easier, login to Ride The Lightning or other GUI and display the clearnet's URI QR so you only have to point your camera to it from Blixt's app.
+
+
+# Additional configurtions
+- Set your VPS ufw to allow 41641/udp to help Tailscale connecting your two machines directly without using its third-party relay. 
+- Set your VPS security rules (on webgui admin panel from your provider) to allow only inbound connections at port 9735/tcp+udp. You can also restrict port 22/tcp to your home's public IP. This way, your VPS will only allow connections to LND and SSH from your home.
+
+
+
+
+
+
+#### Buy me a coffe
+Did this guide help you somehow?
+Do you want to send me some sats?
+
+Onion lightning address: tips@ff22k4s6eytfodhuri6dafvvmhclrn66gebbfi3u7xkhbnla3rjiz7id.onion
+Clearnet URI: 03339a8dca2023a3e2a7b4ee99f6a7be87d04bfd32775d3b7f85b0d6d30c457626@35.180.18.38:9735
+Onion URI: 03339a8dca2023a3e2a7b4ee99f6a7be87d04bfd32775d3b7f85b0d6d30c457626@gznwi4govx7c4rur3gpgbekixjahhe7lgfwt3r2qwm6auqjeme5pguyd.onion:9735
+Onchain: bc1q2mnltgyznrfjs35wm94nn3pqh677p6qn3ufr0z
