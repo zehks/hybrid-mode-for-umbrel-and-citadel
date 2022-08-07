@@ -102,12 +102,12 @@ On this file we are adding two lines under *[Application Options]* section.
 >
 > nat=false
 
-**Remember that you have to save the file. To do so, press *ctrl+O* then *ctrl+X* to exit from the nano editor.**
-
 Then, at the end of the file under *[tor]* section:
 > tor.skip-proxy-for-clearnet-targets=true
 >
 > tor.streamisolation=false
+
+**Remember that you have to save the file. To do so, press *ctrl+O* then *ctrl+X* to exit from the nano editor.**
 
 Now you could replicate those changes under *~/citadel/lnd/lnd.conf* so you don't have to restart your node.
 If so, you have to restart only the Lightning Network service which is running as a Docker container.
@@ -118,7 +118,9 @@ Check for any error on the logs.
 
 Check if LND is reporting your new URI with a clearnet address.
 > sudo docker exec -it lightning lncli getinfo | jq '.uris'
-You should get an output similar to this one, see that there are two URI (<pubkey>@<address>:<port>) with different addresses (one .onion address and a IP).
+
+You should get an output similar to this one, see that there are two URI (\<pubkey\>@\<address\>:\<port\>) with different addresses (one .onion address and a IP).
+
 > [  
     "03339a8dca2023a3e2a7b4ee99f6a7be87d04bfd32775d3b7f85b0d6d30c457626@35.180.18.38:9735",  
     "03339a8dca2023a3e2a7b4ee99f6a7be87d04bfd32775d3b7f85b0d6d30c457626@gznwi4govx7c4rur3gpgbekixjahhe7lgfwt3r2qwm6auqjeme5pguyd.onion:9735"  
