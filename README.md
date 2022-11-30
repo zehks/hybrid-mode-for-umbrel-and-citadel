@@ -98,7 +98,7 @@ We are editing a template configuration file which is located under *templates* 
 > nano ~/citadel/templates/lnd-sample.conf
 
 On this file we are adding two lines under *[Application Options]* section.
-> externalip=<vpn_public_ip>:9735
+> externalip=<vps_public_ip>:9735
 >
 > nat=false
 
