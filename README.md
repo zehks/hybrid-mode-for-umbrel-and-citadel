@@ -149,6 +149,6 @@ Did this guide help you somehow?
 Do you want to send me some sats?
 
 - Onion lightning address: tips@ff22k4s6eytfodhuri6dafvvmhclrn66gebbfi3u7xkhbnla3rjiz7id.onion  
-- Clearnet URI: 03339a8dca2023a3e2a7b4ee99f6a7be87d04bfd32775d3b7f85b0d6d30c457626@35.180.18.38:9735  
-- Onion URI: 03339a8dca2023a3e2a7b4ee99f6a7be87d04bfd32775d3b7f85b0d6d30c457626@gznwi4govx7c4rur3gpgbekixjahhe7lgfwt3r2qwm6auqjeme5pguyd.onion:9735
-- PayNym: +royalsunset01A                                                                                                                                                - PayNym: PM8TJV8RAHuSXKKLR56ZvvHT2oupphiXJis4dTpN3rckE3yoamywHbdgoUebpSsM1ZqEMNViu4tbxCrTzXsjuRvST89Xv4gdhJgbYZhL1687hBs4E6vB
+- Clearnet URI: 03339a8dca2023a3e2a7b4ee99f6a7be87d04bfd32775d3b7f85b0d6d30c457626@15.237.2.179:9735  
+- PayNym: +royalsunset01A
+- PayNym: PM8TJV8RAHuSXKKLR56ZvvHT2oupphiXJis4dTpN3rckE3yoamywHbdgoUebpSsM1ZqEMNViu4tbxCrTzXsjuRvST89Xv4gdhJgbYZhL1687hBs4E6vB
