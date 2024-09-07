@@ -148,7 +148,7 @@ To make your life easier, login to Ride The Lightning or other GUI and display t
 Did this guide help you somehow?
 Do you want to send me some sats?
 
-- Onion lightning address: tips@ff22k4s6eytfodhuri6dafvvmhclrn66gebbfi3u7xkhbnla3rjiz7id.onion  
-- Clearnet URI: 03339a8dca2023a3e2a7b4ee99f6a7be87d04bfd32775d3b7f85b0d6d30c457626@15.237.2.179:9735  
+- Lightning address: 0x4808a58883d28cf2@sats.mobi 
+- LNURL: LNURL1DP68GURN8GHJ7UMPW3EJUMT0VF5J7TNHV4KXCTTTDEHHWM30D3H82UNVWQHNQ7P58QCRSCF48QURSVMYXGUXXE3JVH9LJY  
 - PayNym: +royalsunset01A
 - PayNym: PM8TJV8RAHuSXKKLR56ZvvHT2oupphiXJis4dTpN3rckE3yoamywHbdgoUebpSsM1ZqEMNViu4tbxCrTzXsjuRvST89Xv4gdhJgbYZhL1687hBs4E6vB
