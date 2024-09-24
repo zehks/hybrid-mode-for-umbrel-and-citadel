@@ -150,5 +150,5 @@ Do you want to send me some sats?
 
 - Lightning address: 0x4808a58883d28cf2@sats.mobi 
 - LNURL: LNURL1DP68GURN8GHJ7UMPW3EJUMT0VF5J7TNHV4KXCTTTDEHHWM30D3H82UNVWQHNQ7P58QCRSCF48QURSVMYXGUXXE3JVH9LJY  
-- PayNym: +royalsunset01A
+- PayNym: +responsivebattle45
 - PayNym: PM8TJV8RAHuSXKKLR56ZvvHT2oupphiXJis4dTpN3rckE3yoamywHbdgoUebpSsM1ZqEMNViu4tbxCrTzXsjuRvST89Xv4gdhJgbYZhL1687hBs4E6vB
